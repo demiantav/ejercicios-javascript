@@ -8,5 +8,75 @@
 </head>
 <body>
 
+  <script>
+
+
+
+
+    class EjerciciosClase1{
+
+    /*Ej 1: Programa una funcion que cuente el numero de caracteres de una cadena de texto, pe.miFuncion("Hola Mundo") devolvera 10*/
+
+      static resolverEj1(cadena){
+
+        let regX = /^[A-Za-z]+$/;
+
+
+           if(typeof cadena !== 'object' && isNaN(cadena) && cadena.replaceAll(" ","").match(regX)){
+
+             return cadena.length;
+
+           } return false;
+        }
+
+        /* 2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".*/
+
+      static resolverEj2(cadena,index){
+
+        if(typeof cadena !== 'object' && isNaN(cadena) && index <= cadena.length-1){
+
+          return cadena.substring(0,index);
+
+        } return false
+      }
+
+/*3) Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].*/
+
+      static resolverEj3(cadena,caracter){
+
+        if(typeof cadena !== 'object' && isNaN(cadena)){
+
+          return cadena.toLowerCase().split(caracter.toLowerCase());
+
+        } return false
+      }
+
+/*4) Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo.*/
+
+       static resolverEj4(cadena,index){
+
+         if(typeof cadena !== 'object' && isNaN(cadena)){
+
+           for(let i=0; i<index; i++){
+
+             console.log(cadena);
+           }
+         }
+
+
+       }
+
+
+
+    }
+
+    console.log(EjerciciosClase1.resolverEj1("b"));
+    console.log(EjerciciosClase1.resolverEj2("Hola Mundo",10));
+    console.log(EjerciciosClase1.resolverEj3("Hola Mundo","M"));
+    EjerciciosClase1.resolverEj4("Me llamo la poli guacho",3);
+
+
+  </script>
+
 </body>
 </html>
