@@ -15,7 +15,7 @@
 
     class EjerciciosClase1{
 
-    /*Ej 1: Programa una funcion que cuente el numero de caracteres de una cadena de texto, pe.miFuncion("Hola Mundo") devolvera 10*/
+/*Ej 1: Programa una funcion que cuente el numero de caracteres de una cadena de texto, pe.miFuncion("Hola Mundo") devolvera 10*/
 
       static resolverEj1(cadena){
 
@@ -29,11 +29,11 @@
            } return false;
         }
 
-        /* 2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".*/
+/* 2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".*/
 
       static resolverEj2(cadena,index){
 
-        if(typeof cadena !== 'object' && isNaN(cadena) && index <= cadena.length-1){
+        if(typeof cadena !== 'object' && isNaN(cadena) && index <= cadena.length){
 
           return cadena.substring(0,index);
 
@@ -66,6 +66,35 @@
 
        }
 
+  /*5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".*/
+
+     static resolverEj5(cadena){
+
+       if(typeof cadena !== 'object' && isNaN(cadena) && cadena !== null && cadena !== undefined){
+
+         return cadena.split("").reverse().join("");
+
+       } return false
+     }
+
+  /*6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.*/
+
+     static resolverEj6(cadena,palabra){
+
+       let cont=0;
+
+       for(const index of cadena.split(" ")){
+
+         if(index === palabra){
+
+           cont++;
+         }
+       }
+
+       console.log(cadena.split(/[," "]/));
+       return cont;
+     }
+
 
 
     }
@@ -74,6 +103,8 @@
     console.log(EjerciciosClase1.resolverEj2("Hola Mundo",10));
     console.log(EjerciciosClase1.resolverEj3("Hola Mundo","M"));
     EjerciciosClase1.resolverEj4("Me llamo la poli guacho",3);
+    console.log(EjerciciosClase1.resolverEj5("gd"));
+    console.log(EjerciciosClase1.resolverEj6("me, corte el pelo porque el pelo es un pelo feo","pelo"));
 
 
   </script>
