@@ -91,9 +91,20 @@
          }
        }
 
-       console.log(cadena.split(/[," "]/));
        return cont;
      }
+
+  /*7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.*/
+
+  static resolverEj7(cadena){
+
+    if(typeof cadena === "object" || !isNaN(cadena)) return false
+
+    let aux= cadena.toLowerCase() === cadena.toLowerCase().split("").reverse().join("");
+
+    return (aux) ? true:false;
+
+  }
 
 
 
@@ -105,6 +116,7 @@
     EjerciciosClase1.resolverEj4("Me llamo la poli guacho",3);
     console.log(EjerciciosClase1.resolverEj5("gd"));
     console.log(EjerciciosClase1.resolverEj6("me, corte el pelo porque el pelo es un pelo feo","pelo"));
+    console.log(EjerciciosClase1.resolverEj7("Menem"));
 
 
   </script>
