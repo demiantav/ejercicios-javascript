@@ -106,6 +106,15 @@
 
   }
 
+  static resolverEj8(cadena,regx){
+
+    if(typeof cadena === "object" || !isNaN(cadena)) return false
+
+    let reg = new RegExp(`${regx}`,"g");
+
+    return cadena.replace(reg,'');
+  }
+
 
 
     }
@@ -117,6 +126,7 @@
     console.log(EjerciciosClase1.resolverEj5("gd"));
     console.log(EjerciciosClase1.resolverEj6("me, corte el pelo porque el pelo es un pelo feo","pelo"));
     console.log(EjerciciosClase1.resolverEj7("Menem"));
+    console.log(EjerciciosClase1.resolverEj8("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz"));
 
 
   </script>
