@@ -85,13 +85,13 @@
 
        for(const index of cadena.split(" ")){
 
-         if(index === palabra){
+         if(index.toLowerCase() === palabra.toLowerCase()){
 
            cont++;
          }
        }
 
-       return cont;
+       return `La palabra "${palabra}" se repite ${cont} veces`;
      }
 
   /*7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.*/
@@ -106,14 +106,112 @@
 
   }
 
+/*8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.*/
+
   static resolverEj8(cadena,regx){
 
     if(typeof cadena === "object" || !isNaN(cadena)) return false
 
-    let reg = new RegExp(`${regx}`,"g");
-
-    return cadena.replace(reg,'');
+    return cadena.replace(new RegExp(regx,"ig"),'');
   }
+
+/*9) Programa una función que obtenga un numero aleatorio entre 501 y 600.*/
+
+   static resolverEj9 = () => Math.floor(Math.random() * 100) + 501;
+
+/*10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true.*/
+
+    static resolverEj10(numero){
+
+      if(typeof numero === "object") return false
+
+      let numeroEnPalabra = numero.toString();
+      let aux = numeroEnPalabra === numeroEnPalabra.split("").reverse().join("");
+
+      return (aux) ? true:false;
+    }
+
+/*11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.*/
+
+  static resolverEj11(numero){
+
+    let resu = 1;
+
+    if(numero === 0) return `El factorial de ${numero} es 1`;
+    if(typeof numero === "object" || isNaN(numero)) return false
+
+    for(let i=1; i<=numero; i++){
+
+      resu*=i;
+    }
+
+    return resu;
+  }
+
+/*12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.*/
+
+static resolverEj12(numero){
+
+ let i=2;
+
+  if(typeof numero !== 'number' || numero < 1) return false
+
+  for(i;i<numero;i++){
+
+    if(numero % i === 0) return false
+
+  } return true
+
+
+ }
+
+
+/*13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.*/
+
+   static resolverEj13(numero){
+
+     if(typeof numero !== 'number' || numero < 0) return false
+
+     return (numero % 2 === 0) ? true:false;
+
+   }
+
+/*14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.*/
+
+   static resolverEj14(numero,grados) {
+
+     let resu;
+
+     if(grados.toUpperCase() !== 'C' && grados.toUpperCase() !== 'F' ){
+
+       return console.error("El tipo de grado ingresado no es valido")
+
+     } if(typeof numero !== 'number'){
+
+       return console.error("El tipo de dato ingresado no es numerico")
+
+    }
+
+    switch(grados.toUpperCase()){
+
+      case 'C':
+
+         resu = (numero * 9/5) + 32;
+         return `${numero}° C pasado a F es: ${resu}°`;
+
+      case 'F':
+
+         resu = (numero - 32) * 5/9 ;
+         return `${numero}° F pasado a C es: ${resu}°`;
+
+
+
+    }
+
+
+   }
+
+
 
 
 
@@ -124,9 +222,16 @@
     console.log(EjerciciosClase1.resolverEj3("Hola Mundo","M"));
     EjerciciosClase1.resolverEj4("Me llamo la poli guacho",3);
     console.log(EjerciciosClase1.resolverEj5("gd"));
-    console.log(EjerciciosClase1.resolverEj6("me, corte el pelo porque el pelo es un pelo feo","pelo"));
+    console.log(EjerciciosClase1.resolverEj6("Si no puedo escapar, podre si lo se pero si no puedo, voy a poder si es otra vez y si me caigo","si"));
     console.log(EjerciciosClase1.resolverEj7("Menem"));
-    console.log(EjerciciosClase1.resolverEj8("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz"));
+    console.log(EjerciciosClase1.resolverEj8("xYz1, xyz2, xyz3, xyz4 y xyz5", "xyz"));
+    console.log(EjerciciosClase1.resolverEj9());
+    console.log(EjerciciosClase1.resolverEj10(72911927));
+    console.log(EjerciciosClase1.resolverEj11(12));
+    console.log(EjerciciosClase1.resolverEj11(8));
+    console.log(EjerciciosClase1.resolverEj12(1));
+    console.log(EjerciciosClase1.resolverEj13(227));
+    console.log(EjerciciosClase1.resolverEj14(345867,'c'));
 
 
   </script>
