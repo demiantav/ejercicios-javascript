@@ -154,7 +154,7 @@ static resolverEj12(numero){
 
  let i=2;
 
-  if(typeof numero !== 'number' || numero < 1) return false
+  if(typeof numero !== 'number' || numero <= 1) return false
 
   for(i;i<numero;i++){
 
@@ -211,6 +211,22 @@ static resolverEj12(numero){
 
    }
 
+/*15) Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.*/
+
+    static resolverEj15(numero,base){
+
+        if(typeof numero !== 'number') return console.error("El numero ingresado es invalido")
+
+        if(base === 2){
+
+          return Number.parseInt(numero,base);
+
+        } else if(base === 10){
+
+          return numero.toString(2);
+        }
+    }
+
 
 
 
@@ -232,6 +248,7 @@ static resolverEj12(numero){
     console.log(EjerciciosClase1.resolverEj12(1));
     console.log(EjerciciosClase1.resolverEj13(227));
     console.log(EjerciciosClase1.resolverEj14(345867,'c'));
+    console.log(EjerciciosClase1.resolverEj15(5640,10));
 
 
   </script>
