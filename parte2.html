@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ejercicios de Javascript Parte Dos</title>
+</head>
+<body>
+
+  <script>
+
+    class EjerciciosParte2{
+
+/*16) Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800.*/
+
+      static resolverEj16(precio,descuento){
+
+        const validacionPrecio = isNaN(precio) || precio <=0 || precio === null;
+
+        const validacionDescuento = isNaN(descuento) || descuento <=0 || descuento === null;
+
+        return (validacionPrecio || validacionDescuento)
+         ? false
+         :(precio - ((descuento/100) * precio))
+
+      }
+
+  /*17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).*/
+
+       static resolverEj17(fecha){
+
+         if(fecha instanceof Date){
+
+          const añoActual= new Date().getFullYear();
+          return añoActual - fecha.getFullYear();
+
+        } return console.error("No se ingreso una fecha valida")
+
+
+       }
+
+  /*18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.*/
+
+        static resolverEj18(entrada){
+
+          const regVocal = /[aeiou]/ig;
+          const regConstante= /[bcdfghjklmnñpqrstvwxyz]/ig;
+          let contVocales=0;
+          let contConstantes=0;
+
+
+
+          if(isNaN(entrada)){
+
+            for(const index of entrada.split("")){
+
+              if(index.match(regVocal)){
+
+                contVocales++;
+
+              }
+            }
+
+            for(const index of entrada.split("")){
+
+              if(index.match(regConstante)){
+
+                contConstantes++;
+
+              }
+            }
+
+            return `Cantidad de constantes: ${contConstantes}, cantidad de vocales ${contVocales}`;
+          }
+        }
+
+
+
+    }
+
+
+    console.log(EjerciciosParte2.resolverEj16(2000,25));
+    console.log(EjerciciosParte2.resolverEj16("",20));
+    console.log(EjerciciosParte2.resolverEj17(new Date('1995-12-17T03:24:00')));
+    console.log(EjerciciosParte2.resolverEj18("Una vez me cruce con tu hermano"));
+
+
+
+  </script>
+
+</body>
+</html>
