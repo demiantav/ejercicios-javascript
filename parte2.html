@@ -40,6 +40,8 @@
 
        }
 
+      
+
   /*18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.*/
 
         static resolverEj18(entrada){
@@ -51,7 +53,7 @@
 
 
 
-          if(isNaN(entrada)){
+          if(isNaN(entrada) && typeof entrada !== 'object'){
 
             for(const index of entrada.split("")){
 
@@ -71,9 +73,36 @@
               }
             }
 
-            return `Cantidad de constantes: ${contConstantes}, cantidad de vocales ${contVocales}`;
+            return {
+              cadena: entrada,
+              vocales: `${contVocales}`,
+              constantes: `${contConstantes}`
+            };
           }
         }
+
+
+  /*19) Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.*/
+
+          static resolverEj19(nombre){
+
+            const reg = /^[a-zA-ZÀ-ÿ ]*$/; // Con esto validamos que la palabra o texto unicamente este compuesta de letras de la A a la Z y espacios
+
+            return (isNaN(nombre) && typeof nombre !== 'object')
+            ? reg.test(nombre)
+            : false
+          }
+
+
+  /*20) Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.*/
+
+       static resolverEj20(email){
+
+             const reg = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/;
+
+    return reg.test(email)
+  }
+
 
 
 
@@ -84,6 +113,8 @@
     console.log(EjerciciosParte2.resolverEj16("",20));
     console.log(EjerciciosParte2.resolverEj17(new Date('1995-12-17T03:24:00')));
     console.log(EjerciciosParte2.resolverEj18("Una vez me cruce con tu hermano"));
+    console.log(EjerciciosParte2.resolverEj19("demián tavolaro"));
+    console.log(EjerciciosParte2.resolverEj20("demian@gmail.com"));
 
 
 
