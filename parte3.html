@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ejercicios de Javascript Parte 3</title>
+</head>
+<body>
+
+  <script>
+
+    /*27) Programa una clase llamada Pelicula.
+
+La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
+  - Todos los datos del objeto son obligatorios.
+  - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los
+     7 restantes números.
+  - Valida que el título no rebase los 100 caracteres.
+  - Valida que el director no rebase los 50 caracteres.
+  - Valida que el año de estreno sea un número entero de 4 dígitos.
+  - Valida que el país o paises sea introducidos en forma de arreglo.
+  - Valida que los géneros sean introducidos en forma de arreglo.
+  - Valida que los géneros introducidos esten dentro de los géneros
+     aceptados*.
+  - Crea un método estático que devuelva los géneros aceptados*.
+  - Valida que la calificación sea un número entre 0 y 10 pudiendo ser
+    decimal de una posición.
+  - Crea un método que devuelva toda la ficha técnica de la película.
+  - Apartir de un arreglo con la información de 3 películas genera 3
+    instancias de la clase de forma automatizada e imprime la ficha técnica
+    de cada película.
+
+* Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.*/
+
+
+     class Pelicula{
+
+
+
+       constructor({id,titulo,director,añoDeEstreno,paisOrigen,generos,calificacion}){
+
+         this.id= id
+         this.titulo= titulo
+         this.director= director
+         this.añoDeEstreno= añoDeEstreno
+         this.paisOrigen= paisOrigen
+         this.generos= generos
+         this.calificacion= calificacion
+
+         this.validarId(id)
+         this.validarTitulo(titulo)
+         this.validarDirector(director)
+         this.validarAñoEstreno(añoDeEstreno)
+         this.validarPais(paisOrigen)
+         this.validarGenero(generos)
+         this.validarGenerosAceptados(generos)
+
+       }
+
+       validarId(id){
+
+         if(isNaN(id) && typeof id !== 'object'){
+
+           return (/^([a-zA-Z]{2})([0-9]{7})$/.test(id))
+                  ? true
+                  : console.warn("El ID ingresado no es correcto")
+         }
+          return console.error("Problema")
+       }
+
+       validarTitulo(titulo){
+
+         if(isNaN(titulo) && typeof titulo !== 'object'){
+
+           return (titulo.length <=100)
+                  ? true
+                  :false
+         } return false
+       }
+
+       validarDirector(director){
+
+         if(isNaN(director) && typeof titulo !== 'object'){
+
+           return (director.length <=50)
+                  ? true
+                  : console.warn("El nombre ingresado excede el numero de caracteres")
+         } return false
+       }
+
+       validarAñoEstreno(año){
+
+         if(typeof año === 'number'){
+
+           return (año.toString().length === 4)
+                  ? true
+                  : console.warn("El año ingresado no es valido. Debe ser formato de 4 digitos")
+
+         } return console.error("El dato ingresado no es numerico")
+       }
+
+       validarPais(pais){
+
+         return (pais instanceof Array)
+                ? true
+                : console.warn("El dato ingresado no es un arreglo")
+       }
+
+       validarGenero(genero){
+
+         return (genero instanceof Array)
+                ? true
+                : false
+       }
+
+       validarGenerosAceptados(genero){
+
+         if(genero instanceof Array){
+
+           for(const index of genero){
+
+             if(!Pelicula.getGenerosAceptados().includes(index)) return console.warn("El genero es invalido")
+
+
+         }
+
+         return true
+       }
+
+     }
+
+       static getGenerosAceptados(){
+
+         const aceptados = ["Action","Adult","Adventure","Animation","Biography","Comedy","Crime","Documentary","Drama","Family","Fantasy","Film Noir","Game-Show","History","Horror","Musical","Music","Mystery","News","Reality-TV","Romance","Sci-Fi","Short","Sport","Talk-Show","Thriller","War","Western"]
+
+         return aceptados
+
+
+       }
+
+  }
+
+    let objeto = new Pelicula({
+      id:"yd4579675",
+      titulo:"The Batman",
+      director:"Mat Revees",
+      añoDeEstreno: 2022,
+      paisOrigen:["Francia"],
+      generos:["Crime","Adventure"],
+      calificacion:5.4
+    })
+
+     console.log(objeto)
+     console.log(Pelicula.getGenerosAceptados())
+     console.log(Pelicula.imprimirFicha(objeto))
+
+
+
+
+  </script>
+</body>
+</html>
